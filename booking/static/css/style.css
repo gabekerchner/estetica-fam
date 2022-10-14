@@ -1,0 +1,185 @@
+@charset "UTF-8";
+@font-face {
+  font-family: "Handel Gothic Italic";
+  src: local("Handel Gothic Italic"), url("../fonts/handel-gothic-italic.ttf") format("truetype");
+}
+.ml-auto {
+  margin-left: auto !important;
+}
+
+a {
+  color: #ffffff80;
+}
+a:hover {
+  color: #fff;
+}
+
+.active a {
+  color: #fff;
+}
+
+.section {
+  position: relative;
+  height: 100vh;
+}
+.section .section-center {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+#booking {
+  font-family: "Lato", sans-serif;
+  background-size: cover;
+  background-position: center;
+  color: #191a1e;
+}
+
+.booking-form {
+  position: relative;
+  background: #fff;
+  max-width: 642px;
+  width: 100%;
+  margin: auto;
+  padding: 45px 25px 25px;
+  border-radius: 4px;
+  -webkit-box-shadow: 0px 0px 10px -5px rgba(0, 0, 0, 0.4);
+  box-shadow: 0px 0px 10px -5px rgba(0, 0, 0, 0.4);
+}
+.booking-form select.form-control + .select-arrow {
+  position: absolute;
+  right: 6px;
+  bottom: 6px;
+  width: 32px;
+  line-height: 32px;
+  height: 32px;
+  text-align: center;
+  pointer-events: none;
+  color: #dfe5e9;
+  font-size: 14px;
+}
+.booking-form select.form-control + .select-arrow:after {
+  content: "➜";
+  display: block;
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+.booking-cta {
+  margin-top: 45px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+}
+.booking-cta h1 {
+  font-size: 52px;
+  text-transform: uppercase;
+  color: #f08221;
+  font-weight: 400;
+  text-align: center;
+}
+.booking-cta p {
+  font-size: 22px;
+  color: #191a1e;
+  text-align: center;
+}
+
+.primary-card {
+  border-left: 4px solid #f08221;
+}
+
+.success-card {
+  border-left: 4px solid #198754;
+}
+
+.info-card {
+  border-left: 4px solid #0dcaf0;
+}
+
+.warning-card {
+  border-left: 4px solid #ffc107;
+}
+
+.form-floating.errorlist {
+  display: None;
+}
+
+.progress-bar,
+.btn-primary,
+.btn-primary:hover,
+.bg-primary,
+.page-link,
+.form-check-input {
+  background-color: #f08221 !important;
+}
+
+.btn-primary,
+.page-link,
+.form-check-input {
+  border-color: #f08221 !important;
+}
+
+.nav-link:hover {
+  color: white;
+}
+
+label[for=id_confirmation_required], label[for=id_disable_weekend], label[for=id_start_time], label[for=id_end_time], label[for=id_period_of_each_booking], label[for=id_max_booking_per_time] {
+  font-size: 0;
+}
+label[for=id_confirmation_required]::before, label[for=id_disable_weekend]::before, label[for=id_start_time]::before, label[for=id_end_time]::before, label[for=id_period_of_each_booking]::before, label[for=id_max_booking_per_time]::before {
+  font-size: 16px;
+}
+label[for=id_confirmation_required]::before {
+  content: "Confirmação de consulta";
+}
+label[for=id_disable_weekend]::before {
+  content: "Desabilitar fim de semana";
+}
+label[for=id_start_time]::before {
+  content: "Horário inicial";
+}
+label[for=id_end_time]::before {
+  content: "Horário final";
+}
+label[for=id_period_of_each_booking]::before {
+  content: "Período de cada agendamento";
+}
+label[for=id_max_booking_per_time]::before {
+  content: "Máximo de agendamento por horário";
+}
+
+#time-list p#time-1030,
+#time-list p#time-1130,
+#time-list p#time-1230,
+#time-list p#time-1530,
+#time-list p#time-1630,
+#time-list p#time-1730,
+#time-list p#time-1830 {
+  display: none;
+}
+
+#title-date,
+#title-time,
+#title-user-info {
+  font-size: 0;
+}
+
+#title-date::before {
+  content: "Data";
+  font-size: 2rem;
+}
+
+#title-time::before {
+  content: "Horário";
+  font-size: 2rem;
+}
+
+#title-user-info::before {
+  content: "Dados do Cliente";
+  font-size: 2rem;
+}
+
+/*# sourceMappingURL=style.css.map */

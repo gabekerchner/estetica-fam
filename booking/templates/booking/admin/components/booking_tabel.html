@@ -1,0 +1,63 @@
+<table class="table table-bordered table-hover">
+    <thead>
+      <tr>
+        {% if full_table %}
+          <th scope="col">#</th>
+        {% endif %}
+        <th scope="col">Nome</th>
+        <th scope="col">Sobrenome</th>
+        <th scope="col">Data</th>
+        <th scope="col">Horário</th>
+        <th scope="col">Telefone</th>
+        {% if full_table %}
+          <th scope="col">Criado em</th>
+          <th scope="col">Ações</th>
+        {% endif %}
+
+      </tr>
+    </thead>
+    <tbody>
+      {% for booking in bookings %}
+      <tr>
+        {% if full_table %}
+          <th scope="row">{{booking.id}}</th>
+        {% endif %}
+
+        <td>{{booking.nome}}</td>
+        <td>{{booking.sobrenome}}</td>
+        <td>{{booking.date|date:"d/m/Y"}}</td>
+        <td>{{booking.time|date:"H:i"}}</td>
+        <td>{{booking.telefone|default:""}}</td>
+        {% if full_table %}
+          <td>{{booking.created_at|date:"d/m/Y H:i"}}</td>
+          <td class="d-flex">
+
+            <div class="col dropdown">
+              <button class="btn btn-secondary btn-sm dropdown-toggle p-0 pe-1" type="button" id="actionDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="actionDropdown">
+                {% if not booking.approved %}
+                  <li>
+                    <form action="{% url 'booking_delete' booking.id %}" method="POST">
+                      {% csrf_token %}
+                      <button type="submit" class="dropdown-item">Confirmar</button>
+                    </form>
+                  </li>
+                {% endif %}
+              </ul>
+            </div>
+            <div class="col">
+              {% if booking.approved %}
+                  <i class="fas fa-check-square text-success"></i>
+              {% else %}
+                  <i class="far fa-pause-circle text-danger"></i>
+              {% endif %}
+
+            </div>
+        </td>
+        {% endif %}
+      </tr>
+      {% endfor %}
+
+    </tbody>
+  </table>

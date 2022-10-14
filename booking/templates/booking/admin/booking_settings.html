@@ -1,0 +1,42 @@
+{% extends 'booking/base.html' %}
+
+{% block content %}
+    <h2 class="text-black-50 my-4">Configurações</h2>
+    <hr>
+    <div class="container col-md-8">
+        {% include 'booking/admin/components/show_errors.html' %}
+        {% if request.GET.type == 'successed' %}
+            <div class="alert alert-success">
+                <strong>Settings successfully saved</strong>
+            </div>
+        {% endif %}
+        <form method="POST" class="row">
+            {% csrf_token %}
+            {% for field in form %}
+                {% if field.field.widget.input_type == 'checkbox' %}
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            {{field}}
+                            <label for="{{ field.id_for_label }}" class="form-label">{{field.label}}</label>
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label for="{{ field.id_for_label }}" class="form-label">{{field.label}}</label>
+                            {{field}}
+                            <div id="emailHelp" class="form-text">{{field.help_text}}</div>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+            {% for item in get_available_time %}
+                <p class="border mx-1 col-2 py-3 text-center bg-{% if item.is_taken %}secondary {% elif item.time == field.value %}primary text-white {% else%}light {% endif %}">{{item.time}}</p>
+            {% endfor %}
+            <hr>
+            <div class="d-grid col-2 ml-auto">    
+                <button type="submit" class="btn btn-primary">Salvar</button>
+            </div>
+        </form>
+    </div>
+{% endblock content %}
